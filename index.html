@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Halau Hula O Wehilani 所属 フラダンスサークル｜川口市安行原</title>
+<meta name="description" content="埼玉県川口市安行原の自宅スタジオで開くフラダンスサークル。初心者さん大歓迎、無料体験随時募集中です。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&family=Noto+Sans+JP:wght@400;500;700&family=M+PLUS+Rounded+1c:wght@500;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ocean: #0E7C86;
+    --turquoise: #2EC4B6;
+    --aqua-light: #A7E8E1;
+    --coral: #FF6B57;
+    --mango: #FFB627;
+    --plumeria: #FFD6E0;
+    --sand: #FFF9F0;
+    --ink: #1F3A43;
+    --r: 28px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Noto Sans JP", sans-serif;
+    color: var(--ink);
+    background: var(--sand);
+    line-height: 2;
+    letter-spacing: .03em;
+    overflow-x: hidden;
+  }
+  .rounded { font-family: "M PLUS Rounded 1c", sans-serif; }
+  .mincho { font-family: "Shippori Mincho", serif; }
+
+  /* ===== ナビ（浮かぶピル型） ===== */
+  nav {
+    position: fixed;
+    top: 16px; left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: clamp(12px, 2.5vw, 28px);
+    background: rgba(255,249,240,.85);
+    backdrop-filter: blur(12px);
+    border-radius: 999px;
+    padding: 10px 22px;
+    box-shadow: 0 8px 28px rgba(31,58,67,.14);
+    white-space: nowrap;
+  }
+  nav .brand {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 800;
+    font-size: .95rem;
+    color: var(--ocean);
+  }
+  nav a {
+    text-decoration: none;
+    color: var(--ink);
+    font-size: .85rem;
+    font-weight: 500;
+  }
+  nav a:hover { color: var(--coral); }
+  nav a.join-pill {
+    background: var(--coral);
+    color: #fff;
+    border-radius: 999px;
+    padding: 7px 18px;
+    font-weight: 700;
+    transition: transform .15s;
+  }
+  nav a.join-pill:hover { transform: scale(1.06); color: #fff; }
+  @media (max-width: 700px) { nav a:not(.join-pill) { display: none; } }
+
+  /* ===== ヒーロー（海と夕日） ===== */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 110px 24px 140px;
+    background:
+      linear-gradient(180deg, rgba(31,58,67,.3) 0%, rgba(255,107,87,.14) 45%, rgba(14,124,134,.55) 100%),
+      url("images/hero.jpg") center/cover no-repeat;
+    overflow: hidden;
+  }
+  .hero h1 {
+    font-family: "Shippori Mincho", serif;
+    font-weight: 600;
+    font-size: clamp(2.3rem, 7.5vw, 4.2rem);
+    letter-spacing: .14em;
+    line-height: 1.75;
+    text-shadow: 0 4px 30px rgba(14,124,134,.45);
+  }
+  .hero .kicker {
+    font-family: "Caveat", cursive;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    color: #fff;
+    opacity: .95;
+    transform: rotate(-3deg);
+    margin-bottom: 20px;
+  }
+  .hero .sub { margin-top: 30px; font-size: clamp(.92rem, 2.4vw, 1.05rem); opacity: .95; }
+  .hero .badges { margin-top: 34px; display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+  .hero .badge {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 700;
+    font-size: .88rem;
+    background: rgba(255,249,240,.92);
+    color: var(--ocean);
+    border-radius: 999px;
+    padding: 9px 22px;
+    box-shadow: 0 6px 18px rgba(14,124,134,.25);
+  }
+  .hero .badge.hot { background: var(--coral); color: #fff; }
+
+  /* 浮かぶ花 */
+  .float { position: absolute; font-size: clamp(1.6rem, 4vw, 2.6rem); animation: floaty 6s ease-in-out infinite; pointer-events: none; }
+  @keyframes floaty {
+    0%, 100% { transform: translateY(0) rotate(-6deg); }
+    50% { transform: translateY(-22px) rotate(8deg); }
+  }
+  .f1 { top: 18%; left: 9%; animation-delay: 0s; }
+  .f2 { top: 30%; right: 11%; animation-delay: 1.4s; }
+  .f3 { bottom: 26%; left: 16%; animation-delay: 2.8s; font-size: 1.7rem; }
+  .f4 { bottom: 32%; right: 18%; animation-delay: .7s; }
+  .f5 { top: 14%; right: 34%; animation-delay: 2s; font-size: 1.5rem; }
+
+  /* ヒーロー下の波 */
+  .hero .waves { position: absolute; bottom: -2px; left: 0; right: 0; line-height: 0; }
+  .hero .waves svg { width: 100%; height: 110px; display: block; }
+
+  /* ===== ALOHAティッカー ===== */
+  .ticker {
+    background: var(--sand);
+    padding: 26px 0 10px;
+    overflow: hidden;
+  }
+  .ticker-track {
+    display: flex;
+    gap: 3.2rem;
+    width: max-content;
+    animation: scrollx 26s linear infinite;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.3rem, 3.4vw, 2rem);
+    letter-spacing: .14em;
+  }
+  .ticker-track span:nth-child(odd) { color: var(--turquoise); }
+  .ticker-track span:nth-child(even) { color: var(--mango); }
+  @keyframes scrollx { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ===== 共通 ===== */
+  section { padding: clamp(70px, 10vw, 110px) 24px; }
+  .wrap { max-width: 980px; margin: 0 auto; }
+  .sec-head { text-align: center; margin-bottom: clamp(40px, 6vw, 60px); }
+  .sec-en {
+    font-family: "Caveat", cursive;
+    font-size: 1.6rem;
+    color: var(--coral);
+    transform: rotate(-2deg);
+    display: inline-block;
+  }
+  h2 {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.7rem, 4.5vw, 2.3rem);
+    letter-spacing: .12em;
+    margin-top: 4px;
+  }
+  h2 .wave-line { display: block; margin: 14px auto 0; width: 90px; }
+
+  /* スクロールでふわっと */
+  .reveal { opacity: 0; transform: translateY(34px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.on { opacity: 1; transform: none; }
+
+  /* ===== 私たちのフラ ===== */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 34px;
+    align-items: stretch;
+  }
+  @media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; } }
+  .card {
+    background: #fff;
+    border-radius: var(--r);
+    padding: 38px 34px;
+    box-shadow: 0 10px 34px rgba(31,58,67,.09);
+  }
+  .card p { margin-bottom: 1.3em; }
+  .card p:last-child { margin-bottom: 0; }
+  .teacher-card {
+    background: linear-gradient(160deg, var(--turquoise), var(--ocean));
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 6px;
+  }
+  .teacher-card .emoji { font-size: 2.6rem; }
+  .teacher-card .role { font-family: "Caveat", cursive; font-size: 1.4rem; color: var(--mango); }
+  .teacher-card .name { font-family: "M PLUS Rounded 1c", sans-serif; font-weight: 800; font-size: 1.5rem; letter-spacing: .12em; }
+  .teacher-card .belong { font-size: .82rem; opacity: .9; line-height: 1.8; }
+
+  /* ===== 写真ストリップ ===== */
+  .photo-strip {
+    display: flex;
+    gap: clamp(18px, 3.5vw, 34px);
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 0 24px;
+  }
+  .photo-strip figure { margin: 0; text-align: center; }
+  .photo-strip img {
+    width: min(430px, 86vw);
+    border-radius: 22px;
+    border: 8px solid #fff;
+    box-shadow: 0 14px 36px rgba(31,58,67,.16);
+    transition: transform .25s;
+    display: block;
+  }
+  .photo-strip figure:nth-child(1) img { transform: rotate(-2deg); }
+  .photo-strip figure:nth-child(2) img { transform: rotate(1.6deg); margin-top: 26px; }
+  .photo-strip figure img:hover { transform: rotate(0deg) scale(1.02); }
+  .photo-strip figcaption {
+    font-family: "Caveat", cursive;
+    font-size: 1.3rem;
+    color: var(--ocean);
+    margin-top: 14px;
+  }
+
+  /* ===== スケジュール ===== */
+  .schedule-bg {
+    background:
+      radial-gradient(ellipse 70% 60% at 12% 8%, rgba(46,196,182,.16) 0%, rgba(46,196,182,0) 60%),
+      radial-gradient(ellipse 60% 55% at 92% 90%, rgba(255,182,39,.18) 0%, rgba(255,182,39,0) 60%),
+      var(--sand);
+  }
+  .sched-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 22px;
+  }
+  .sched-card {
+    background: #fff;
+    border-radius: var(--r);
+    padding: 32px 26px;
+    text-align: center;
+    box-shadow: 0 10px 34px rgba(31,58,67,.09);
+    transition: transform .2s;
+    border-top: 6px solid var(--turquoise);
+  }
+  .sched-card:nth-child(2) { border-top-color: var(--mango); }
+  .sched-card:nth-child(3) { border-top-color: var(--coral); }
+  .sched-card:nth-child(4) { border-top-color: var(--plumeria); }
+  .sched-card:hover { transform: translateY(-8px) rotate(-.5deg); }
+  .sched-card .icon { font-size: 2.2rem; }
+  .sched-card .k {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 700;
+    color: var(--ocean);
+    font-size: .95rem;
+    letter-spacing: .25em;
+    margin: 8px 0 12px;
+  }
+  .sched-card .v { font-size: 1rem; line-height: 1.9; }
+  .sched-card .v strong {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 800;
+    font-size: 1.45rem;
+    color: var(--ink);
+  }
+  .sched-card .note { font-size: .78rem; color: #7d8d94; margin-top: 8px; line-height: 1.7; }
+
+  /* ===== インスタ ===== */
+  .insta { text-align: center; }
+  .insta .lead { max-width: 620px; margin: 0 auto 46px; }
+  .ig-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    justify-items: center;
+    align-items: start;
+  }
+  .insta .more {
+    display: inline-block;
+    margin-top: 46px;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(120deg, #F58529, #DD2A7B 55%, #8134AF);
+    text-decoration: none;
+    border-radius: 999px;
+    padding: 14px 36px;
+    box-shadow: 0 10px 26px rgba(221,42,123,.3);
+    transition: transform .15s;
+  }
+  .insta .more:hover { transform: scale(1.05); }
+
+  /* ===== 体験CTA ===== */
+  .join {
+    position: relative;
+    background: linear-gradient(160deg, var(--ocean) 0%, var(--turquoise) 100%);
+    color: #fff;
+    text-align: center;
+    border-radius: clamp(30px, 6vw, 56px);
+    max-width: 1080px;
+    margin: 0 auto clamp(70px, 10vw, 110px);
+    padding: clamp(60px, 9vw, 90px) 28px;
+    overflow: hidden;
+  }
+  .join .sec-en { color: var(--mango); }
+  .join h2 { color: #fff; }
+  .join .lead { max-width: 560px; margin: 18px auto 40px; }
+  .join .btn {
+    display: inline-block;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: .1em;
+    background: var(--coral);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 999px;
+    padding: 20px 60px;
+    box-shadow: 0 12px 30px rgba(31,58,67,.3);
+    transition: transform .18s;
+  }
+  .join .btn:hover { transform: scale(1.07) rotate(-1deg); }
+  .join .btn-note { font-size: .82rem; opacity: .9; margin-top: 18px; }
+  .join .free {
+    position: absolute;
+    top: clamp(18px, 4vw, 40px); right: clamp(14px, 5vw, 60px);
+    font-family: "Caveat", cursive;
+    font-size: clamp(1.3rem, 3.5vw, 1.9rem);
+    color: var(--mango);
+    transform: rotate(8deg);
+  }
+  .join .flyer { margin-top: 58px; }
+  .join .flyer img {
+    max-width: min(270px, 75%);
+    border: 8px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 14px 34px rgba(31,58,67,.3);
+    transform: rotate(2deg);
+    transition: transform .25s;
+  }
+  .join .flyer img:hover { transform: rotate(0deg) scale(1.03); }
+  .join .flyer p { font-size: .82rem; opacity: .9; margin-top: 16px; }
+
+  /* ===== お問い合わせフォーム ===== */
+  .contact-sec { text-align: center; padding-top: 0; }
+  .contact-card {
+    background: #fff;
+    border-radius: var(--r);
+    box-shadow: 0 10px 34px rgba(31,58,67,.09);
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 44px 34px;
+    text-align: left;
+  }
+  .contact-card label {
+    display: block;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 700;
+    font-size: .9rem;
+    color: var(--ocean);
+    margin: 22px 0 8px;
+  }
+  .contact-card label:first-child { margin-top: 0; }
+  .contact-card input, .contact-card textarea {
+    width: 100%;
+    font: inherit;
+    color: var(--ink);
+    background: var(--sand);
+    border: 2px solid #eee3d2;
+    border-radius: 14px;
+    padding: 13px 16px;
+    outline: none;
+    transition: border-color .2s;
+  }
+  .contact-card input:focus, .contact-card textarea:focus { border-color: var(--turquoise); }
+  .contact-card textarea { min-height: 140px; resize: vertical; }
+  .contact-card .send {
+    display: block;
+    width: 100%;
+    margin-top: 28px;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 800;
+    font-size: 1.05rem;
+    letter-spacing: .1em;
+    color: #fff;
+    background: var(--coral);
+    border: none;
+    border-radius: 999px;
+    padding: 17px;
+    cursor: pointer;
+    box-shadow: 0 10px 26px rgba(255,107,87,.35);
+    transition: transform .15s;
+  }
+  .contact-card .send:hover { transform: scale(1.02); }
+  .contact-card .form-note { font-size: .8rem; color: #7d8d94; margin-top: 16px; line-height: 1.8; text-align: center; }
+
+  /* ===== フッター ===== */
+  footer {
+    background: var(--ink);
+    color: rgba(255,249,240,.85);
+    text-align: center;
+    padding: 70px 24px 46px;
+  }
+  footer .aloha {
+    font-family: "Caveat", cursive;
+    font-size: 2.4rem;
+    color: var(--mango);
+  }
+  footer .proverb { margin-top: 10px; font-size: .95rem; }
+  footer .contact { margin-top: 30px; font-size: .88rem; }
+  footer .contact a { color: var(--aqua-light); text-decoration: none; }
+  footer .contact a:hover { text-decoration: underline; }
+  footer .copy { margin-top: 40px; font-size: .74rem; opacity: .55; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="brand">🌺 Hula O Wehilani</span>
+  <a href="#about">私たちのフラ</a>
+  <a href="#schedule">スケジュール</a>
+  <a href="#insta">ギャラリー</a>
+  <a class="join-pill" href="#join">無料体験へ</a>
+</nav>
+
+<header class="hero" id="top">
+  <span class="float f1">🌺</span>
+  <span class="float f2">🌴</span>
+  <span class="float f3">🐢</span>
+  <span class="float f4">🌼</span>
+  <span class="float f5">🍍</span>
+
+  <div class="kicker">Let's dance together!</div>
+  <h1>踊ることは、<br>生きること。</h1>
+  <p class="sub">川口市安行原の小さなスタジオから、ハワイの風を。<br>心とからだがほどける、週のまんなかの90分。</p>
+  <div class="badges">
+    <span class="badge hot">無料体験 随時募集中</span>
+    <span class="badge">初心者さん大歓迎</span>
+    <span class="badge">少人数のあたたかい教室</span>
+  </div>
+
+  <div class="waves">
+    <svg viewBox="0 0 1440 110" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,45 C240,100 480,5 720,45 C960,85 1200,25 1440,60 L1440,110 L0,110 Z" fill="rgba(255,249,240,.4)"/>
+      <path d="M0,70 C260,110 520,35 780,70 C1040,100 1260,55 1440,80 L1440,110 L0,110 Z" fill="rgba(255,249,240,.65)"/>
+      <path d="M0,88 C280,112 560,62 840,86 C1100,105 1300,78 1440,92 L1440,110 L0,110 Z" fill="#FFF9F0"/>
+    </svg>
+  </div>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>ALOHA</span><span>🌺</span><span>E KOMO MAI</span><span>🌊</span><span>HULA</span><span>🌴</span><span>MAHALO</span><span>🐢</span><span>OHANA</span><span>☀️</span>
+    <span>ALOHA</span><span>🌺</span><span>E KOMO MAI</span><span>🌊</span><span>HULA</span><span>🌴</span><span>MAHALO</span><span>🐢</span><span>OHANA</span><span>☀️</span>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-en">Our Hula</span>
+      <h2>私たちのフラ</h2>
+    </div>
+    <div class="about-grid">
+      <div class="card reveal">
+        <p>フラは、ハワイの海や花や風を、手のひらとステップにのせて語る踊りです。</p>
+        <p>埼玉県川口市安行原の自宅スタジオで、少人数のあたたかなサークルを開いています。はじめての方も、基本のステップからゆっくり丁寧に。ゆったりした音楽に身をゆだねているうちに、気づけば笑顔になっている——そんな時間です。</p>
+        <p>レッスンのあとのおしゃべりも、ちょっとした楽しみのひとつ🌺</p>
+      </div>
+      <div class="card teacher-card reveal">
+        <div class="emoji">🌺</div>
+        <div class="role">Kumu / 講師</div>
+        <div class="name">五十嵐 ゆう</div>
+        <div class="belong">Halau Hula O Wehilani<br>（ハラウ フラ オ ヴェヒラニ）所属</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="photo-strip reveal">
+  <figure>
+    <img src="images/plumeria.jpg" alt="ピンクのプルメリアの花" loading="lazy">
+    <figcaption>Pua melia — プルメリア</figcaption>
+  </figure>
+  <figure>
+    <img src="images/palms.jpg" alt="夕日とヤシの木のシルエット" loading="lazy">
+    <figcaption>Hawaiian sunset 🌅</figcaption>
+  </figure>
+</div>
+
+<section class="schedule-bg" id="schedule">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-en">Schedule</span>
+      <h2>スケジュール</h2>
+    </div>
+    <div class="sched-grid">
+      <div class="sched-card reveal">
+        <div class="icon">🗓️</div>
+        <div class="k">日 時</div>
+        <div class="v">毎月 第1・第3 水曜日<br><strong>15:00–16:30</strong></div>
+      </div>
+      <div class="sched-card reveal">
+        <div class="icon">🌼</div>
+        <div class="k">月会費</div>
+        <div class="v"><strong>3,000</strong> 円</div>
+        <div class="note">初回のみ入会登録費として<br>別途1,000円をいただきます</div>
+      </div>
+      <div class="sched-card reveal">
+        <div class="icon">🏡</div>
+        <div class="k">場 所</div>
+        <div class="v">川口市安行原<br>自宅スタジオ</div>
+        <div class="note">草加西高近く。詳しい場所は<br>お申し込みの際にご案内します</div>
+      </div>
+      <div class="sched-card reveal">
+        <div class="icon">👟</div>
+        <div class="k">持ち物</div>
+        <div class="v">動きやすい服装<br>飲み物</div>
+        <div class="note">手ぶら見学もOKです</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="insta" id="insta">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-en">Gallery</span>
+      <h2>日々のフラ</h2>
+    </div>
+    <p class="lead reveal">レッスンやイベント出演の様子は、インスタグラムで発信中。教室の楽しい空気は、ここからいちばん伝わるはず!</p>
+    <div class="ig-grid reveal">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DYrj1scSv8A/" data-instgrm-version="14" style="max-width:328px; width:100%; border-radius:24px;"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DYMBDp5ieHC/" data-instgrm-version="14" style="max-width:328px; width:100%; border-radius:24px;"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DYCoSi7CSKw/" data-instgrm-version="14" style="max-width:328px; width:100%; border-radius:24px;"></blockquote>
+    </div>
+    <a class="more" href="https://www.instagram.com/yuyu_hula" target="_blank" rel="noopener">📷 Instagram をもっと見る</a>
+  </div>
+</section>
+
+<section style="padding-top: 0;">
+  <div class="join reveal" id="join">
+    <span class="free">Free trial!</span>
+    <span class="sec-en">Join us</span>
+    <h2>無料体験レッスン</h2>
+    <p class="lead">「ちょっと気になる」だけで大丈夫。見学だけでも、手ぶらでも。まずは一度、スタジオの空気を感じにきてください🌴 お問い合わせはインスタのDMからどうぞ。</p>
+    <a class="btn" href="https://www.instagram.com/yuyu_hula" target="_blank" rel="noopener">体験を申し込む 🌺</a>
+    <p class="btn-note">Instagram（@yuyu_hula）のDMにてご連絡ください</p>
+    <div class="flyer">
+      <img src="images/flyer.jpg" alt="フラダンスサークルお仲間募集フライヤー" loading="lazy">
+      <p>手描きのフライヤーも地域で配布しています</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact-sec" id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-en">Contact</span>
+      <h2>お問い合わせ</h2>
+    </div>
+    <div class="contact-card reveal">
+      <label for="c-name">お名前</label>
+      <input id="c-name" type="text" placeholder="例）山田 花子">
+      <label for="c-msg">メッセージ</label>
+      <textarea id="c-msg" placeholder="例）無料体験を希望します。初心者ですが大丈夫ですか？"></textarea>
+      <button class="send" type="button" onclick="sendMail()">メールを送る ✉️</button>
+      <p class="form-note">「メールを送る」を押すと、お使いのメールアプリが開きます。<br>内容を確認してそのまま送信してください。宛先：yuyu.i@docomo.ne.jp</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="aloha">Mahalo!</div>
+  <p class="proverb">ʻAʻohe hana nui ke alu ʻia. — どんなことも、みんなでやれば難しくない。</p>
+  <p class="contact">お問い合わせ：<a href="mailto:yuyu.i@docomo.ne.jp">yuyu.i@docomo.ne.jp</a> ／ <a href="https://www.instagram.com/yuyu_hula" target="_blank" rel="noopener">Instagram @yuyu_hula</a></p>
+  <p class="copy">© 2026 Halau Hula O Wehilani 所属 フラダンスサークル（埼玉県川口市安行原）｜Photos: Unsplash</p>
+</footer>
+
+<script async src="https://www.instagram.com/embed.js"></script>
+<script>
+  function sendMail() {
+    const name = document.getElementById('c-name').value.trim();
+    const msg = document.getElementById('c-msg').value.trim();
+    const subject = '【フラダンスサークル】お問い合わせ' + (name ? '（' + name + '）' : '');
+    const body = (name ? 'お名前：' + name + '\n\n' : '') + msg;
+    location.href = 'mailto:yuyu.i@docomo.ne.jp?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  // 万一アニメーションが発動しなくても、内容が見えなくならないようにする保険
+  setTimeout(() => document.querySelectorAll('.reveal:not(.on)').forEach(el => el.classList.add('on')), 1800);
+</script>
+</body>
+</html>
